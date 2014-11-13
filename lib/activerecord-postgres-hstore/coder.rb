@@ -30,6 +30,7 @@ module ActiveRecord
       end
 
       def from_hstore hstore
+        return hstore if hstore.is_a?(Hash)
         PgHstore.load hstore, false
       end
     end

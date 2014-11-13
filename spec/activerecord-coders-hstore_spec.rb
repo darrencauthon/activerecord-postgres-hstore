@@ -38,6 +38,11 @@ describe ActiveRecord::Coders::Hstore do
       let(:value){ "a=>a" }
       it{ should eql({ 'a' => 'a' }) }
     end
+
+    context 'when value is a hash' do
+      let(:value){ { 'b' => 'c' } }
+      it{ should eql({ 'b' => 'c' }) }
+    end
   end
 
   describe "#dump" do
